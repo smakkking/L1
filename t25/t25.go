@@ -18,7 +18,7 @@ var T = TimeScheduler{
 }
 
 func (t *TimeScheduler) sleep(sec int) {
-
+	// реализация через ждущую горутину
 	wg := sync.WaitGroup{}
 
 	wg.Add(1)
@@ -35,6 +35,7 @@ func (t *TimeScheduler) sleep(sec int) {
 	wg.Wait()
 }
 
+// busy wait реализация
 func sleep(sec int) {
 	var t time.Time = time.Now().Add(time.Duration(sec) * time.Second)
 

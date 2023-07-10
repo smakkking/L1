@@ -6,12 +6,14 @@ import (
 	"math"
 )
 
+// исходный интерфейс "неизменяемый"
 type MyInterface interface {
 	SendRequest() float32
 	ThrowException() error
 	DoSomeLog()
 }
 
+// условный тип, удовлетворяющий интерфейсу
 type S1 struct{}
 
 func (s *S1) SendRequest() float32 {
@@ -28,12 +30,15 @@ func (s *S1) DoSomeLog() {
 	fmt.Println("log created!")
 }
 
+// интерфейс, к которому нужно привести
 type MyOtherInterface interface {
 	Send() int
 	Throw() error
 	Log()
 }
 
+// преобразователь типа, в него мы будем засовывать сущ тип,
+// на выходе получать тип, удовл нужному интерфейсу
 type ToMyOtherInterface struct {
 	*S1
 }
@@ -49,8 +54,6 @@ func (t *ToMyOtherInterface) Throw() error {
 func (t *ToMyOtherInterface) Log() {
 	t.S1.DoSomeLog()
 }
-
-func foo(s MyInterface) {}
 
 func DoTask() {
 	var _ MyInterface = &S1{}

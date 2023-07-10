@@ -7,6 +7,7 @@ import (
 )
 
 type Point struct {
+	// структура лежит в памяти последовательно [&P][&P+1]...[&P+8]...
 	x, y float64
 }
 
@@ -29,7 +30,7 @@ func Distance(p1 *Point, p2 *Point) float64 {
 
 func DoTask() {
 	p1 := NewPoint(0, 0)
-	p2 := NewPoint(3, 4)
+	p2 := NewPoint(5, 12)
 
 	fmt.Println(Distance(p1, p2))
 }

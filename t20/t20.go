@@ -15,6 +15,7 @@ func reverseWords(s string) string {
 	return string(trimSpaces(chars))
 }
 
+// переворачиваем все символы в конкретной части строки
 func reverseString(chars []rune, left, right int) {
 	for left < right {
 		chars[left], chars[right] = chars[right], chars[left]
@@ -23,6 +24,7 @@ func reverseString(chars []rune, left, right int) {
 	}
 }
 
+// переворачиваем все "слова" - разделенные пробелом последовательности символов
 func reverseWordsInString(chars []rune) {
 	n := len(chars)
 	start := 0
@@ -38,19 +40,23 @@ func reverseWordsInString(chars []rune) {
 }
 
 func trimSpaces(chars []rune) []rune {
+	// убирает лишние пробелы - чтобы между словом был только 1
 	slow := 0
 	fast := 0
 	n := len(chars)
 
 	for fast < n {
+		// пока есть пробелы
 		for fast < n && unicode.IsSpace(chars[fast]) {
 			fast++
 		}
+		// помещаем слово вместо пробелов
 		for fast < n && !unicode.IsSpace(chars[fast]) {
 			chars[slow] = chars[fast]
 			slow++
 			fast++
 		}
+		// добавляем 1 пробел
 		if fast < n {
 			chars[slow] = ' '
 			slow++
@@ -61,7 +67,7 @@ func trimSpaces(chars []rune) []rune {
 }
 
 func DoTask() {
-	s := "cat dog slow fast"
+	s := "    cat   dog  slow         fast    "
 	s = reverseWords(s)
 	fmt.Println(s)
 }

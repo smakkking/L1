@@ -11,6 +11,7 @@ type Counter struct {
 }
 
 func (c *Counter) Increment() {
+	// закрываем мьютексом
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
@@ -22,5 +23,16 @@ func (c *Counter) Show() {
 }
 
 func DoTask() {
+	c := Counter{}
+	defer c.Show()
 
+	wg := sync.WaitGroup{}
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go func(c *Counter) {
+			defer wg.Done()
+			c.Increment()
+		}(&c)
+	}
+	wg.Wait()
 }
