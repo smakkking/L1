@@ -11,7 +11,7 @@ func get_type(obj interface{}) {
 	fmt.Println(reflect.TypeOf(obj).Kind())
 }
 
-func _main() {
+func DoTask() {
 	var val []int
 	get_type(val)
 }

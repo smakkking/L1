@@ -20,3 +20,7 @@ func (c *Counter) Increment() {
 func (c *Counter) Show() {
 	fmt.Println(c.count)
 }
+
+func DoTask() {
+
+}

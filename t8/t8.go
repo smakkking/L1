@@ -19,3 +19,7 @@ func f2(num int64, bit_number int) int64 {
 	var b int64 = 1 << bit_number
 	return num ^ b
 }
+
+func DoTask() {
+
+}

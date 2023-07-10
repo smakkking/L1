@@ -5,14 +5,11 @@ import (
 	"fmt"
 )
 
-func t4_f1() {
-
-}
-
 func DoTask() {
-	ch := make(chan int)
+	ch := make(chan int, 1)
 
-	ctx, _ := context.WithCancel(context.Background())
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
 
 	const N int = 10
 
@@ -27,6 +24,10 @@ func DoTask() {
 				}
 			}
 		}(ctx, ch)
+	}
+
+	for i := 0; true; i++ {
+		ch <- i
 	}
 
 }

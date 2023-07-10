@@ -23,3 +23,7 @@ func bin_find[T constraints.Ordered](arr []T, x T, l int, r int) (int, error) {
 		return bin_find(arr, x, l, q-1)
 	}
 }
+
+func DoTask() {
+
+}

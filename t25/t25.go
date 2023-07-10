@@ -3,7 +3,6 @@ package t25
 import (
 	"context"
 	"os"
-	"os/signal"
 	"sync"
 	"time"
 )
@@ -46,6 +45,6 @@ func sleep(sec int) {
 	}
 }
 
-func main() {
-	signal.Reset()
+func DoTask() {
+	sleep(5)
 }

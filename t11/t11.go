@@ -27,7 +27,7 @@ func intersect[T comparable](arr1 []T, arr2 []T) []T {
 
 }
 
-func _main() {
+func DoTask() {
 	r := []int{1, 2, 3, 4, 5}
 	s := []int{1, 2, 100, 4, 6}
 

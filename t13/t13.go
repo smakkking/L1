@@ -16,3 +16,7 @@ func t_13_f2(a *int, b *int) {
 func t_13_f3(a int, b int) (int, int) {
 	return b, a
 }
+
+func DoTask() {
+
+}

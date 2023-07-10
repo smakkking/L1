@@ -30,7 +30,7 @@ func x2(in <-chan int, wg *sync.WaitGroup) {
 	}
 }
 
-func main() {
+func DoTask() {
 	ch_in := make(chan int)
 	ch_out := make(chan int)
 

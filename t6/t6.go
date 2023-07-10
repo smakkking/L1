@@ -59,7 +59,7 @@ func simple_goroutine4(m sync.Map) {
 	}
 }
 
-func main() {
+func DoTask() {
 	ctx, cancel := context.WithCancel(context.Background())
 
 	go simple_goroutine1(ctx)

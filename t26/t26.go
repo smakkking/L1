@@ -1,5 +1,7 @@
 package t26
 
+import "fmt"
+
 func is_unique(str []rune) bool {
 	table := make(map[rune]bool)
 
@@ -15,5 +17,5 @@ func is_unique(str []rune) bool {
 }
 
 func DoTask() {
-	is_unique([]rune("abcde"))
+	fmt.Println(is_unique([]rune("abcde")))
 }

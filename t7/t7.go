@@ -2,40 +2,40 @@ package t7
 
 import "sync"
 
-type MapConcurrent[T1 ~int | ~string | ~float64, T2 any] struct {
+type MapConcurrent struct {
 	mu         sync.Mutex
-	secret_map map[T1]T2
+	secret_map map[int]int
 }
 
-func NewMapConcurrent(m *map[any]any) *MapConcurrent {
+func NewMapConcurrent(m *map[int]int) *MapConcurrent {
 	return &MapConcurrent{
 		mu:         sync.Mutex{},
 		secret_map: *m,
 	}
 }
 
-func (m *MapConcurrent) SetValue(key any, value any) {
+func (m *MapConcurrent) SetValue(key int, value int) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
 
 	m.secret_map[key] = value
 }
 
-func (m *MapConcurrent) GetValue(key any) any {
+func (m *MapConcurrent) GetValue(key int) int {
 	m.mu.Lock()
 	defer m.mu.Unlock()
 
 	return m.secret_map[key]
 }
 
-func (m *MapConcurrent) DeleteKey(key any) any {
+func (m *MapConcurrent) DeleteKey(key int) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
 
 	delete(m.secret_map, key)
 }
 
-func main() {
+func DoTask() {
 	var m = make(map[int]int)
-	s := NewMapConcurrent(&m)
+	NewMapConcurrent(&m)
 }

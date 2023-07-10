@@ -1,3 +1,19 @@
 package t19
 
-func f1
+import "fmt"
+
+func reverseString(chars []rune) {
+	left, right := 0, len(chars)-1
+	for left < right {
+		chars[left], chars[right] = chars[right], chars[left]
+		left++
+		right--
+	}
+}
+
+func DoTask() {
+	t := []rune("aaabbb")
+
+	reverseString(t)
+	fmt.Println(string(t))
+}
