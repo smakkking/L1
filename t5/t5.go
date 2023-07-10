@@ -1,10 +1,8 @@
-package main
+package t5
 
 import (
 	"context"
 	"fmt"
-	"os"
-	"strconv"
 	"sync"
 	"time"
 )
@@ -39,11 +37,13 @@ func reader(ctx context.Context, ch <-chan int, wg *sync.WaitGroup) {
 	}
 }
 
-func main() {
+func DoTask() {
 	my_ch := make(chan int, 1) // можно и с небуф каналом
 	wg := sync.WaitGroup{}
 
-	N, _ := strconv.Atoi(os.Args[1])
+	var N int
+	fmt.Printf("F=")
+	fmt.Scanf("%d", &N)
 	ctx, _ := context.WithTimeout(context.Background(), time.Duration(N)*time.Second)
 
 	wg.Add(1)

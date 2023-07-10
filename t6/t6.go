@@ -1,4 +1,4 @@
-package main
+package t6
 
 // https://stackoverflow.com/questions/6807590/how-to-stop-a-goroutine
 // https://golang-blog.blogspot.com/2020/03/stop-goroutine.html
@@ -6,6 +6,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"sync"
 )
 
 func simple_goroutine1(ctx context.Context) {
@@ -42,6 +43,17 @@ func simple_goroutine3(stop chan bool) {
 	for {
 		_, ok := <-stop
 		if !ok {
+			break
+		}
+	}
+}
+
+func simple_goroutine4(m sync.Map) {
+	defer fmt.Println("I am stopped 4")
+
+	for {
+		_, ok := m.Load("end")
+		if ok {
 			break
 		}
 	}

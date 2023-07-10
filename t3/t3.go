@@ -1,4 +1,4 @@
-package main
+package t3
 
 import (
 	"fmt"
@@ -68,7 +68,7 @@ func t3_f2(arr []int) {
 	wg.Wait()
 }
 
-func main() {
+func DoTask() {
 	arr := []int{2, 4, 6, 8, 10}
 
 	t3_f2(arr)

@@ -1,4 +1,4 @@
-package main
+package t8
 
 // пояснение
 // x ^ 1 = ~x,

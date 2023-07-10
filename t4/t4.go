@@ -1,4 +1,4 @@
-package main
+package t4
 
 import (
 	"context"
@@ -9,10 +9,10 @@ func t4_f1() {
 
 }
 
-func main() {
+func DoTask() {
 	ch := make(chan int)
 
-	ctx, cancel := context.WithCancel(context.Background())
+	ctx, _ := context.WithCancel(context.Background())
 
 	const N int = 10
 

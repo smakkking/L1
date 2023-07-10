@@ -1,9 +1,9 @@
-package main
+package t1
 
 import "fmt"
 
-type speaker interface {
-	toSpeak()
+func (a *Action) do_intherance(...interface{}) {
+
 }
 
 type Human struct {
@@ -16,11 +16,9 @@ func (a *Human) walk() {
 }
 
 type Action struct {
-	human   Human
-	surname string
-	speaker
+	human Human
 } // чтобы можно было использовать a.walk(), а не a.human.walk()
 
-func main() {
+func DoTask() {
 
 }

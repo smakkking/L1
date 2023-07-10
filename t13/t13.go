@@ -1,4 +1,4 @@
-package main
+package t13
 
 func t_13_f1(a *int, b *int) {
 	*a += *b
