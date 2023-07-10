@@ -18,6 +18,7 @@ func temp_koleb(arr []float32) map[float32][]float32 {
 
 	for _, elem := range arr {
 		for i := 0; i < len(grad)-1; i++ {
+			// если попадает в группу - пихаем в нее
 			if grad[i] <= elem && elem <= grad[i+1] {
 				result[grad[i]] = append(result[grad[i]], elem)
 			}

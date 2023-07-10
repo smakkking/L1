@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// записывает числа в канал
 func x1(arr []int, in chan<- int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for _, elem := range arr {
@@ -15,6 +16,7 @@ func x1(arr []int, in chan<- int, wg *sync.WaitGroup) {
 	close(in)
 }
 
+// читает числа из канала и записывает их * 2 в другой
 func transfer(in <-chan int, out chan<- int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for elem := range in {
@@ -23,6 +25,7 @@ func transfer(in <-chan int, out chan<- int, wg *sync.WaitGroup) {
 	close(out)
 }
 
+// читает из канала и выводит
 func x2(in <-chan int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for elem := range in {
@@ -48,5 +51,4 @@ func DoTask() {
 	go x2(ch_out, &wg)
 
 	wg.Wait()
-
 }

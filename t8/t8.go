@@ -1,5 +1,7 @@
 package t8
 
+import "fmt"
+
 // пояснение
 // x ^ 1 = ~x,
 // x ^ 0 = x
@@ -21,5 +23,8 @@ func f2(num int64, bit_number int) int64 {
 }
 
 func DoTask() {
+	var a int64 = 16
+	a = f1(a, 4, 0)
 
+	fmt.Println(a)
 }

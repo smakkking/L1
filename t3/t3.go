@@ -6,6 +6,7 @@ import (
 )
 
 func t3_f1(arr []int) {
+	// пишем горутинами в канал, затем суммируем в мейн-горутине
 	ch := make(chan int, len(arr)) // буфф канал
 
 	wg := sync.WaitGroup{}
@@ -30,6 +31,7 @@ func t3_f1(arr []int) {
 }
 
 func t3_f2(arr []int) {
+	// пишем горутинами в канал, затем суммируем в отдельной горутине
 	ch := make(chan int, len(arr))
 	mu := sync.Mutex{}
 	var n int = 0

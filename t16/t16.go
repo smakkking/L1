@@ -13,14 +13,18 @@ func partition(arr []int, low, high int) ([]int, int) {
 			i++
 		}
 	}
+	// получается, что элемент по индексу i - граница: слева от него значения < pivot, справа - >=
 	arr[i], arr[high] = arr[high], arr[i]
 	return arr, i
 }
 
 func quickSort(arr []int, low, high int) []int {
+
 	if low < high {
 		var p int
 		arr, p = partition(arr, low, high)
+
+		// сортируем 2 частии по полученной границе
 		arr = quickSort(arr, low, p-1)
 		arr = quickSort(arr, p+1, high)
 	}

@@ -2,6 +2,7 @@ package t11
 
 import "fmt"
 
+// задаем, чтобы тип можно было сравнить
 func intersect[T comparable](arr1 []T, arr2 []T) []T {
 	var result []T
 	if len(arr1) < len(arr2) {
@@ -10,6 +11,7 @@ func intersect[T comparable](arr1 []T, arr2 []T) []T {
 		result = make([]T, 0, len(arr2))
 	}
 
+	// индикаторы использования, чтобы не было так, что мы один и тот же элемент 2 раза взяли
 	is_used1 := make([]bool, len(arr1))
 	is_used2 := make([]bool, len(arr2))
 
